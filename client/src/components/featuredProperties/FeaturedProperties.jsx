@@ -1,4 +1,3 @@
-import React from "react";
 import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
@@ -6,58 +5,58 @@ const FeaturedProperties = () => {
     <div className="fp">
       <div className="fpItem">
         <img
-          src="https://cf.bstatic.com/xdata/images/hotel/max500/106393405.jpg?k=237d0a65974505ec4d34765c230ad8c6198e0cc4f807e4f8c542ef95c89a38ab&o="
-          alt="barcelona"
+          src="https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1"
+          alt=""
           className="fpImg"
         />
-        <span className="fpName">The Patio Barcelona</span>
-        <span className="fpCity">Barcelona</span>
-        <span className="fpPrice">Starting from OMR 322</span>
+        <span className="fpName">Aparthotel Stare Miasto</span>
+        <span className="fpCity">Madrid</span>
+        <span className="fpPrice">Starting from $120</span>
         <div className="fpRating">
-          <button>9.1</button>
-          <span>Wonderful</span>
+          <button>8.9</button>
+          <span>Excellent</span>
         </div>
       </div>
       <div className="fpItem">
         <img
-          src="https://cf.bstatic.com/xdata/images/hotel/max500/40890517.jpg?k=cd55de5463af8988f78fd675904a43d02f77570debe9977c4c1fe658030b6d29&o="
-          alt="rome"
+          src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/215955381.jpg?k=ff739d1d9e0c8e233f78ee3ced82743ef0355e925df8db7135d83b55a00ca07a&o=&hp=1"
+          alt=""
           className="fpImg"
         />
-        <span className="fpName">Appartamento Benincampi</span>
-        <span className="fpCity">Rome</span>
-        <span className="fpPrice">Starting from OMR 120</span>
+        <span className="fpName">Comfort Suites Airport</span>
+        <span className="fpCity">Austin</span>
+        <span className="fpPrice">Starting from $140</span>
         <div className="fpRating">
-          <button>9.7</button>
+          <button>9.3</button>
           <span>Exceptional</span>
         </div>
       </div>
       <div className="fpItem">
         <img
-          src="https://cf.bstatic.com/xdata/images/hotel/max500/74065694.jpg?k=7d852b0255118faf9ca8f22ac30b033f8b7448ad7f47867f13bd213c6cb2e411&o="
-          alt="budapest"
+          src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/232902339.jpg?k=3947def526b8af0429568b44f9716e79667d640842c48de5e66fd2a8b776accd&o=&hp=1"
+          alt=""
           className="fpImg"
         />
-        <span className="fpName">VIP Residence Budapest</span>
-        <span className="fpCity">Budapest</span>
-        <span className="fpPrice">Starting from OMR 149</span>
+        <span className="fpName">Four Seasons Hotel</span>
+        <span className="fpCity">Lisbon</span>
+        <span className="fpPrice">Starting from $99</span>
         <div className="fpRating">
-          <button>9.6</button>
-          <span>Exceptional</span>
+          <button>8.8</button>
+          <span>Excellent</span>
         </div>
       </div>
       <div className="fpItem">
         <img
-          src="https://cf.bstatic.com/xdata/images/hotel/max500/62261541.jpg?k=3ef9943ed49b4959b2cb9fbbb4f75ee2a7a6c9460bbfd7634b6fcd23674863f3&o="
-          alt="barcelona"
+          src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/322658536.jpg?k=3fffe63a365fd0ccdc59210188e55188cdb7448b9ec1ddb71b0843172138ec07&o=&hp=1"
+          alt=""
           className="fpImg"
         />
-        <span className="fpName">Midtown Apartments</span>
-        <span className="fpCity">Barcelona</span>
-        <span className="fpPrice">Starting from OMR 141</span>
+        <span className="fpName">Hilton Garden Inn</span>
+        <span className="fpCity">Berlin</span>
+        <span className="fpPrice">Starting from $105</span>
         <div className="fpRating">
-          <button>9.4</button>
-          <span>Wonderful</span>
+          <button>8.9</button>
+          <span>Excellent</span>
         </div>
       </div>
     </div>
