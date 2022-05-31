@@ -27,8 +27,8 @@ const Header = ({ type }) => {
   ]);
   const [openOptions, setOpenOptions] = useState(false);
   const [options, setOptions] = useState({
-    adult: 1,
-    children: 0,
+    adult: 2,
+    children: 1,
     room: 1,
   });
 
@@ -83,7 +83,7 @@ const Header = ({ type }) => {
             </h1>
             <p className="headerDesc">
               Get rewarded for your travels – unlock instant savings of 10% or
-              more with a free Lamabooking account
+              more with a free HotelBooking account
             </p>
             <button className="headerBtn">Sign in / Register</button>
             <div className="headerSearch">
@@ -121,11 +121,19 @@ const Header = ({ type }) => {
                 <span
                   onClick={() => setOpenOptions(!openOptions)}
                   className="headerSearchText"
-                >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
+                >{`${options.adult} ${
+                  options.adult > 1 ? "Adults" : "Adult"
+                } · ${options.children} ${
+                  options.children > 1 ? "Children" : "Child"
+                } · ${options.room} ${
+                  options.room > 1 ? "Rooms" : "Room"
+                }`}</span>
                 {openOptions && (
                   <div className="options">
                     <div className="optionItem">
-                      <span className="optionText">Adult</span>
+                      <span className="optionText">
+                        {options.adult > 1 ? "Adults" : "Adult"}
+                      </span>
                       <div className="optionCounter">
                         <button
                           disabled={options.adult <= 1}
@@ -146,7 +154,9 @@ const Header = ({ type }) => {
                       </div>
                     </div>
                     <div className="optionItem">
-                      <span className="optionText">Children</span>
+                      <span className="optionText">
+                        {options.children > 1 ? "Children" : "Child"}
+                      </span>
                       <div className="optionCounter">
                         <button
                           disabled={options.children <= 0}
@@ -167,7 +177,9 @@ const Header = ({ type }) => {
                       </div>
                     </div>
                     <div className="optionItem">
-                      <span className="optionText">Room</span>
+                      <span className="optionText">
+                        {options.room > 1 ? "Rooms" : "Room"}
+                      </span>
                       <div className="optionCounter">
                         <button
                           disabled={options.room <= 1}
