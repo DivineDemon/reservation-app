@@ -1,6 +1,13 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
+import {
+  faBed,
+  faPlane,
+  faCar,
+  faTaxi,
+  faPerson,
+  faCalendarDays,
+} from "@fortawesome/free-solid-svg-icons";
 import "./header.css";
 
 const Header = () => {
@@ -9,23 +16,23 @@ const Header = () => {
       <div className="headerContainer">
         <div className="headerList">
           <div className="headerListItem active">
-            <FontAwesomeIcon icon={solid("bed")} />
+            <FontAwesomeIcon icon={faBed} />
             <span>Stays</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={solid("plane")} />
+            <FontAwesomeIcon icon={faPlane} />
             <span>Flights</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={solid("car")} />
+            <FontAwesomeIcon icon={faCar} />
             <span>Car rentals</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={solid("bed")} />
+            <FontAwesomeIcon icon={faBed} />
             <span>Attractions</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={solid("taxi")} />
+            <FontAwesomeIcon icon={faTaxi} />
             <span>Airport taxis</span>
           </div>
         </div>
@@ -37,7 +44,7 @@ const Header = () => {
         <button className="headerBtn">Sign In / Register</button>
         <div className="headerSearch">
           <div className="headerSearchItem">
-            <FontAwesomeIcon icon={solid("bed")} className="headerIcon" />
+            <FontAwesomeIcon icon={faBed} className="headerIcon" />
             <input
               type="text"
               placeholder="Where are you going?"
@@ -45,14 +52,11 @@ const Header = () => {
             />
           </div>
           <div className="headerSearchItem">
-            <FontAwesomeIcon
-              icon={solid("calender-days")}
-              className="headerIcon"
-            />
+            <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
             <span className="headerSearchText">Date to Date</span>
           </div>
           <div className="headerSearchItem">
-            <FontAwesomeIcon icon={solid("person")} className="headerIcon" />
+            <FontAwesomeIcon icon={faPerson} className="headerIcon" />
             <span className="headerSearchText">2 Adults 2 Children 1 Room</span>
           </div>
         </div>
