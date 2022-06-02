@@ -3,13 +3,15 @@ import dotenv from "dotenv";
 
 import express from "express";
 import path from "path";
+import { connectDB } from "./config/db.js";
 
 // Configured .env
 dotenv.config({ path: "../.env" });
 
 // Importing Routes
 
-// Initializing Express App
+// Initializing Express App + MongoDB
+connectDB();
 const app = express();
 
 // Middleware
