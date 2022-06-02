@@ -9,6 +9,10 @@ import { connectDB } from "./config/db.js";
 dotenv.config({ path: "../.env" });
 
 // Importing Routes
+import { router as authRouter } from "./routes/auth.js";
+import { router as userRouter } from "./routes/users.js";
+import { router as hotelRouter } from "./routes/hotels.js";
+import { router as roomRouter } from "./routes/rooms.js";
 
 // Initializing Express App + MongoDB
 connectDB();
@@ -20,9 +24,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // Routes
-app.use("/", (req, res) => {
-  res.status(200).json({ message: "Base URL Working!" });
-});
+app.use("/api/auth", authRouter);
+app.use("/api/users", userRouter);
+app.use("/api/hotels", hotelRouter);
+app.use("/api/rooms", roomRouter);
 
 // Starting the App
 const PORT = process.env.PORT || 8000;
