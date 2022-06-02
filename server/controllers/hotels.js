@@ -31,3 +31,19 @@ export const getHotels = async (req, res) => {
     });
   }
 };
+
+export const getHotel = async (req, res) => {
+  try {
+    const hotel = await Hotel.findById(req.params.id);
+    res.status(200).json({
+      status: true,
+      message: "Successfully Fetched Hotel!",
+      data: hotel,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: false,
+      error: error.message,
+    });
+  }
+};
