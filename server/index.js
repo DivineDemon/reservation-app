@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import express from "express";
 import path from "path";
 import { connectDB } from "./config/db.js";
+import { errorHandler } from "./middleware/errorHandler.js";
 
 // Configured .env
 dotenv.config({ path: "../.env" });
@@ -29,8 +30,11 @@ app.use("/api/users", userRouter);
 app.use("/api/hotels", hotelRouter);
 app.use("/api/rooms", roomRouter);
 
+// Error Middleware
+app.use(errorHandler);
+
 // Starting the App
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server Running on Port: ${PORT}`);
 });
