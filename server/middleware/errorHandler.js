@@ -6,6 +6,7 @@ export const errorHandler = (err, req, res, next) => {
     success: false,
     status: errStatus,
     message: err.message,
-    stack: process.env.NODE_ENV === "production" ? null : err.stack,
+    // node: process.env.NODE_ENV,
+    stack: process.env.NODE_ENV === "development" ? err.stack : null,
   });
 };
