@@ -5,8 +5,13 @@ import {
   updateUser,
   deleteUser,
 } from "../controllers/users.js";
+import { verifyUser, verifyAdmin } from "./../middleware/verifyToken.js";
 
 export const router = express.Router();
 
-router.route("/").get(getUsers);
-router.route("/:id").get(getUser).put(updateUser).delete(deleteUser);
+router.route("/").get(verifyAdmin, getUsers);
+router
+  .route("/:id")
+  .get(verifyUser, getUser)
+  .put(verifyUser, updateUser)
+  .delete(verifyUser, deleteUser);
