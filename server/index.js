@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import express from "express";
 import path from "path";
 import { connectDB } from "./config/db.js";
-import { errorHandler } from "./middleware/errorHandler.js";
 
 // Configured .env
 dotenv.config({ path: "../.env" });
@@ -31,7 +30,16 @@ app.use("/api/hotels", hotelRouter);
 app.use("/api/rooms", roomRouter);
 
 // Error Middleware
-app.use(errorHandler);
+app.use((err, req, res, next) => {
+  const errorStatus = err.status || 500;
+  const errorMessage = err.message || "Something went wrong!";
+  return res.status(errorStatus).json({
+    success: false,
+    status: errorStatus,
+    message: errorMessage,
+    stack: process.env.NODE_ENV === "development" ? err.stack : null,
+  });
+});
 
 // Starting the App
 const PORT = process.env.PORT || 3000;
