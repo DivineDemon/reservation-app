@@ -38,10 +38,11 @@ export const login = async (req, res, next) => {
     } else {
       const isMatch = bcrypt.compareSync(req.body.password, user.password);
       if (isMatch) {
+        const { password, isAdmin, ...otherDetails } = user._doc;
         res.status(200).json({
           status: true,
           message: "Successfully Logged In!",
-          data: user,
+          data: otherDetails,
         });
       } else {
         return next(errorHandler(400, "Invalid Password!"));
