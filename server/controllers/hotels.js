@@ -26,6 +26,37 @@ export const getHotels = async (req, res, next) => {
   }
 };
 
+export const countByCity = async (req, res, next) => {
+  const cities = req.query.cities.split(",");
+  try {
+    const list = await Promise.all(
+      cities.map((city) => {
+        return Hotel.countDocuments({ city });
+      })
+    );
+    res.status(200).json({
+      status: true,
+      message: "Successfully Fetched List of Hotels!",
+      data: list,
+    });
+  } catch (error) {
+    return next(error);
+  }
+};
+
+export const countByType = async (req, res, next) => {
+  try {
+    const hotels = await Hotel.find();
+    res.status(200).json({
+      status: true,
+      message: "Successfully Fetched Hotels!",
+      data: hotels,
+    });
+  } catch (error) {
+    return next(error);
+  }
+};
+
 export const getHotel = async (req, res, next) => {
   try {
     const hotel = await Hotel.findById(req.params.id);
