@@ -31,14 +31,10 @@ export const countByCity = async (req, res, next) => {
   try {
     const list = await Promise.all(
       cities.map((city) => {
-        return Hotel.countDocuments({ city });
+        return Hotel.find({ city });
       })
     );
-    res.status(200).json({
-      status: true,
-      message: "Successfully Fetched List of Hotels!",
-      data: list,
-    });
+    res.status(200).json(list);
   } catch (error) {
     return next(error);
   }
@@ -46,14 +42,21 @@ export const countByCity = async (req, res, next) => {
 
 export const countByType = async (req, res, next) => {
   try {
-    const hotels = await Hotel.find();
-    res.status(200).json({
-      status: true,
-      message: "Successfully Fetched Hotels!",
-      data: hotels,
-    });
+    const hotelCount = await Hotel.countDocuments({ type: "hotel" });
+    const apartmentCount = await Hotel.countDocuments({ type: "apartment" });
+    const resortCount = await Hotel.countDocuments({ type: "resort" });
+    const villaCount = await Hotel.countDocuments({ type: "villa" });
+    const cabinCount = await Hotel.countDocuments({ type: "cabin" });
+
+    res.status(200).json([
+      { type: "hotel", count: hotelCount },
+      { type: "apartments", count: apartmentCount },
+      { type: "resorts", count: resortCount },
+      { type: "villas", count: villaCount },
+      { type: "cabins", count: cabinCount },
+    ]);
   } catch (error) {
-    return next(error);
+    next(error);
   }
 };
 

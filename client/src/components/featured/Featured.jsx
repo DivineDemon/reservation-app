@@ -1,8 +1,11 @@
+/* eslint-disable no-unused-vars */
 import "./featured.css";
 import useFetch from "./../../hooks/useFetch";
 
 const Featured = () => {
-  const { data, loading } = useFetch("/hotels/countByCity?cities=Berlin,Rome");
+  const { data, loading, error } = useFetch(
+    "/hotels/countByCity?cities=Berlin,Rome,Madrid"
+  );
 
   return (
     <div className="featured">
@@ -10,17 +13,17 @@ const Featured = () => {
         "Loading..."
       ) : (
         <>
-          <div className="featuredItem">
-            <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o="
-              alt=""
-              className="featuredImg"
-            />
-            <div className="featuredTitles">
-              <h1>Dublin</h1>
-              <h2>{data.data[0]} properties</h2>
+          {data.map((data) => (
+            <div key={data[0]._id} className="featuredItem">
+              <img src={data[0].photos[0]} alt="" className="featuredImg" />
+              <div className="featuredTitles">
+                <h1>{data[0].city}</h1>
+                <h2>
+                  {data.length} {data.length > 1 ? "properties" : "property"}
+                </h2>
+              </div>
             </div>
-          </div>
+          ))}
         </>
       )}
     </div>
