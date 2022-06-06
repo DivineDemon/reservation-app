@@ -17,9 +17,9 @@ const Featured = () => {
             <div key={data[0]._id} className="featuredItem">
               <img src={data[0].photos[0]} alt="" className="featuredImg" />
               <div className="featuredTitles">
-                <h1>{data[0].city}</h1>
+                <h1>{data[0]?.city}</h1>
                 <h2>
-                  {data.length} {data.length > 1 ? "properties" : "property"}
+                  {data?.length} {data?.length > 1 ? "properties" : "property"}
                 </h2>
               </div>
             </div>
