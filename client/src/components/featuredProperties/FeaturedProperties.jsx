@@ -24,7 +24,24 @@ const FeaturedProperties = () => {
               {item.rating && (
                 <div className="fpRating">
                   <button>{item.rating}</button>
-                  <span>Excellent</span>
+                  <span>
+                    {(() => {
+                      switch (item.rating) {
+                        case 1:
+                          return "1 Star";
+                        case 2:
+                          return "2 Stars";
+                        case 3:
+                          return "3 Stars";
+                        case 4:
+                          return "4 Stars";
+                        case 5:
+                          return "5 Stars";
+                        default:
+                          return "Unrated";
+                      }
+                    })()}
+                  </span>
                 </div>
               )}
             </div>
