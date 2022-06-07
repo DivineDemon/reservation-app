@@ -21,11 +21,7 @@ export const register = async (req, res, next) => {
     });
 
     await newUser.save();
-    res.status(201).json({
-      status: true,
-      message: "Successfully Created User!",
-      data: newUser,
-    });
+    res.status(201).json(newUser);
   } catch (error) {
     next(error);
   }
@@ -53,11 +49,7 @@ export const login = async (req, res, next) => {
             httpOnly: true,
           })
           .status(200)
-          .json({
-            status: true,
-            message: "Successfully Logged In!",
-            data: otherDetails,
-          });
+          .json(otherDetails);
       } else {
         return next(errorHandler(400, "Invalid Password!"));
       }
