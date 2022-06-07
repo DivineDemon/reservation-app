@@ -4,7 +4,7 @@ import useFetch from "./../../hooks/useFetch";
 
 const FeaturedProperties = () => {
   const { data, loading, error } = useFetch(
-    "/hotels?featured=true&limit=4&min=10&max=200"
+    "/hotels?featured=true&limit=4&min=0&max=1000"
   );
 
   return (
