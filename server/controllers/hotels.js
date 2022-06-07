@@ -63,11 +63,7 @@ export const countByType = async (req, res, next) => {
 export const getHotel = async (req, res, next) => {
   try {
     const hotel = await Hotel.findById(req.params.id);
-    res.status(200).json({
-      status: true,
-      message: "Successfully Fetched Hotel!",
-      data: hotel,
-    });
+    res.status(200).json(hotel);
   } catch (error) {
     return next(error);
   }
