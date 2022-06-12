@@ -1,4 +1,5 @@
 import Hotel from "../models/Hotel.js";
+import Room from "../models/Room.js";
 
 export const createHotel = async (req, res, next) => {
   try {
@@ -95,6 +96,20 @@ export const deleteHotel = async (req, res, next) => {
       status: true,
       message: "Successfully Deleted Hotel!",
     });
+  } catch (error) {
+    return next(error);
+  }
+};
+
+export const getHotelRooms = async (req, res, next) => {
+  try {
+    const hotel = await Hotel.findById(req.params.id);
+    const list = await Promise.all(
+      hotel.rooms.map((room) => {
+        return Room.findById(room);
+      })
+    );
+    res.status(200).json(list);
   } catch (error) {
     return next(error);
   }
