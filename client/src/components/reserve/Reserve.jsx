@@ -57,7 +57,9 @@ const Reserve = ({ setOpen, hotelId }) => {
         })
       );
       setOpen(false);
-    } catch (error) {}
+    } catch (error) {
+      return error;
+    }
   };
 
   return (
