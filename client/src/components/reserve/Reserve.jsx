@@ -3,6 +3,7 @@ import React, { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import "./reserve.css";
 import useFetch from "./../../hooks/useFetch";
@@ -12,6 +13,7 @@ const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { dates } = useContext(SearchContext);
   const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
+  const navigate = useNavigate();
 
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
@@ -57,6 +59,7 @@ const Reserve = ({ setOpen, hotelId }) => {
         })
       );
       setOpen(false);
+      navigate("/");
     } catch (error) {
       return error;
     }
