@@ -13,6 +13,10 @@ const Navbar = () => {
     navigate("/login");
   };
 
+  const handleRegisterClick = () => {
+    navigate("/register");
+  };
+
   return (
     <div className="navbar">
       <div className="navContainer">
@@ -28,8 +32,12 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="navItems">
-            <button className="navButton">Register</button>
-            <button className="navButton">Login</button>
+            <button onClick={handleRegisterClick} className="navButton">
+              Register
+            </button>
+            <button onClick={handleClick} className="navButton">
+              Login
+            </button>
           </div>
         )}
       </div>

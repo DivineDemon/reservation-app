@@ -33,6 +33,10 @@ const Login = () => {
     }
   };
 
+  const handleRegisterClick = () => {
+    navigate("/register");
+  };
+
   return (
     <div className="login">
       <div className="lContainer">
@@ -52,6 +56,9 @@ const Login = () => {
         />
         <button disabled={loading} onClick={handleClick} className="lButton">
           Login
+        </button>
+        <button onClick={handleRegisterClick} className="lButton">
+          Don't have an account? Register now!
         </button>
         {error && <span>{error.message}</span>}
       </div>
