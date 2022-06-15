@@ -1,13 +1,15 @@
-import "./datatable.scss";
-import { DataGrid } from "@mui/x-data-grid";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import useFetch from "../../hooks/useFetch";
 import axios from "axios";
+import { DataGrid } from "@mui/x-data-grid";
+
+import useFetch from "../../hooks/useFetch.js";
+import "./datatable.scss";
 
 const Datatable = ({ columns }) => {
   const location = useLocation();
   const path = location.pathname.split("/")[1];
+
   const [list, setList] = useState();
   const { data } = useFetch(`/${path}`);
 
@@ -19,7 +21,9 @@ const Datatable = ({ columns }) => {
     try {
       await axios.delete(`/${path}/${id}`);
       setList(list.filter((item) => item._id !== id));
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const actionColumn = [
@@ -54,7 +58,7 @@ const Datatable = ({ columns }) => {
       </div>
       <DataGrid
         className="datagrid"
-        rows={list}
+        rows={data}
         columns={columns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
